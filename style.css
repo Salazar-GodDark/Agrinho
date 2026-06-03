@@ -1,0 +1,350 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E RESETS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2e5a36;     /* Verde Folha Escuro */
+    --secondary-color: #4caf50;   /* Verde Vibrante */
+    --dark-color: #1a2a1e;        /* Escuro quase preto */
+    --light-color: #f7f9f6;       /* Fundo suave texturizado */
+    --accent-color: #f0f4f1;      /* Fundo das seções bg-accent */
+    --text-color: #3d4a3e;        /* Cinza esverdeado para textos */
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --border-radius: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E MENU
+   ========================================================================== */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo .highlight {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   3. BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero-banner {
+    background: linear-gradient(rgba(27, 51, 34, 0.85), rgba(27, 51, 34, 0.7)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.green-text {
+    color: var(--secondary-color);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+.frase-impacto {
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1rem;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. LAYOUT DA ESTRUTURA GERAL
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-block {
+    padding: 5rem 2rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--primary-color);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+.section-desc {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+/* Grid Lado a Lado (Texto + Imagem) */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Imagens Estilizadas */
+.image-wrapper {
+    width: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.image-wrapper figcaption {
+    font-size: 0.85rem;
+    color: #7a8a7c;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ==========================================================================
+   5. TABELA ESTILIZADA (SEÇÃO SOJA)
+   ========================================================================== */
+.table-responsive {
+    overflow-x: auto;
+    margin: 2.5rem 0;
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    text-align: left;
+}
+
+th, td {
+    padding: 1rem 1.5rem;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+tr {
+    border-bottom: 1px solid #e1e8e2;
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fafdfa;
+}
+
+/* ==========================================================================
+   6. CAIXA FAQ / DETALHES (SEÇÃO SOJA)
+   ========================================================================== */
+.faq-box {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 3rem;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.faq-box h3 {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.factors-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.factors-list li {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. CARDS DE SUSTENTABILIDADE
+   ========================================================================== */
+.sustainability-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.sustainability-cards li {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #eff3ef;
+    transition: transform 0.3s ease;
+}
+
+.sustainability-cards li:hover {
+    transform: translateY(-5px);
+    border-color: var(--secondary-color);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.sustainability-cards strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.sustainability-cards p {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (MOBILE-FIRST)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .factors-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
